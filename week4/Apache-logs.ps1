@@ -12,6 +12,6 @@ for($i=0; $i -lt $ipsunorganized.Count; $i++) {
     $ips += [pscustomobject]@{ "IP" = $ipsunorganized[$i].Value; }
     }
 $ipsoften = $ips | Where-Object {$_.IP -ilike "10.*" }
-$counts = $ipsoften | Group IP
+$counts = $ipsoften | Group-Object IP
 $counts | Select-Object Count, Name
 }
